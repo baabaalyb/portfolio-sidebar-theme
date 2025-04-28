@@ -5,127 +5,228 @@
   <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for portfolio-sidebar-theme">
+  <meta name="Description" content="Personal Portfolio of Baaba-Aly Ba">
 
   <style>
     :root, html, body {
-      margin: var(--ddd-spacing-0);
-      padding: var(--ddd-spacing-0);
+      margin: 0;
+      padding: 0;
+      height: 100%;
     }
-    #demo {
-      margin: var(--ddd-spacing-2);
+
+    body {
+      font-family: sans-serif;
     }
-    portfolio-sidebar-theme {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
+
+    #portfolio {
+      display: grid;
+      grid-template-columns: 200px 1fr; 
+      height: 100%;
     }
-    portfolio-sidebar-theme:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
+
+    #sidebar {
+      background-color: #f0f0f0;
+      padding: 20px;
+      position: fixed; 
+      height: 100%;
+      box-sizing: border-box;
     }
-    #example {
-      --portfolio-sidebar-theme-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
+
+    #sidebar a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
     }
+
+    #sidebar a.active {
+      background-color: #ddd;
+    }
+
+    #content {
+      overflow-y: auto; 
+      height: 100%;
+      grid-column: 2; 
+      margin-left: 200px; 
+    }
+
+    .screen {
+      height: 100vh; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #home { background-color: #e0f7fa; }
+    #about { background-color: #c5cae9; }
+    #skills { background-color: #dcedc8; }
+    #projects { background-color: #ffecb3; }
+    #contact { background-color: #fbe9e7; }
+
+    .screen-content {
+      width: 80%;
+      margin: auto;
+    }
+
+   
+    .screen-content h2 {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+    }
+
+    .screen-content h3 {
+      font-size: 1.5em;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    .screen-content p {
+      font-size: 1.1em;
+      line-height: 1.4;
+      margin-bottom: 1em;
+    }
+
+    .screen-content ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
   </style>
-  <title>portfolio-sidebar-theme</title>
+
+  <title>Baaba-Aly Ba - Portfolio</title>
 </head>
 
 <body>
-  <div id="demo">
-    <h1>portfolio-sidebar-theme</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
-    <portfolio-sidebar-theme></portfolio-sidebar-theme>
-    <h2>Slot usage</h2>
-    <portfolio-sidebar-theme data-accent="2" data-primary="17"><div>Sample slot content</div></portfolio-sidebar-theme>
-    <h2>Property usage</h2>
-    <portfolio-sidebar-theme id="example" title="Sample property title"></portfolio-sidebar-theme>
-  </div>
-  <script type="module" src="./portfolio-sidebar-theme.js"></script>
 
-  <!-- Take HAX, the Web and you further down the rabbit hole -->
-  <style>
-    #follow-the-white-rabbit {
-      margin: var(--ddd-spacing-4) auto var(--ddd-spacing-16)  var(--ddd-spacing-4);
-      background-color: var(--ddd-accent-4);
-      color: var(--ddd-theme-default-coalyGray);
-    }
-    #follow-the-white-rabbit[open] summary {
-      background-color: var(--ddd-accent-4) !important;
-      color: var(--ddd-theme-default-coalyGray);
-    }
-    #follow-the-white-rabbit[open] .content {
-      padding: var(--ddd-spacing-0) var(--ddd-spacing-4);
-    }
-    #follow-the-white-rabbit ul,
-    #follow-the-white-rabbit li {
-      padding: var(--ddd-spacing-0);
-      margin: var(--ddd-spacing-0);
-    }
-    #follow-the-white-rabbit li {
-      font-size: var(--ddd-font-size-xs);
-      list-style: none;
-    }
-    #follow-the-white-rabbit li strong,
-    #follow-the-white-rabbit li a {
-      padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
-      color: var(--ddd-theme-default-coalyGray);
-      display: block;
-      font-weight: var(--ddd-font-weight-bold);
-    }
-    #follow-the-white-rabbit li:focus-within a,
-    #follow-the-white-rabbit li:hover a {
-      background-color: var(--ddd-theme-default-coalyGray);
-      color: var(--ddd-theme-default-globalNeon);
-    }
-  </style>
-  <details id="follow-the-white-rabbit" open>
-    <summary>How to Develop</summary>
-    <div class="content">
-      <p>
-      
-        <strong>Checkout project on github:</strong> <a href="https://github.com/baabaalyb/portfolio-sidebar-theme" target="_blank" rel="nofollow">baabaalyb/portfolio-sidebar-theme</a>
-        
-      </p>
-      <p>
-        You can edit the current page by modifying <code>index.html</code><br />
-        To edit your <strong>portfolio-sidebar-theme</strong> tag, modify <code>src/portfolio-sidebar-theme.js</code>.
-        This file contains all the HTML, CSS and JavaScript used to render your elements above!
-      </p>
-      <p>
-        Web components are easy to follow once you get used to their pattern.
-        Below are links to help on your journey. Good luck, we need you!
-      </p>
-      <ul>
-        <li><a href="https://haxtheweb.org/documentation/ddd" target="_blank">🧑‍🎨 Learn DDD HAX Design system</a></li>
-        <li><a href="https://lit.dev/playground/" target="_blank" rel="nofollow">🔥 Learn Lit</a></li>
-        <li><a href="https://hax.psu.edu" target="_blank">🧙 HAX The Web @ Penn State</a></li>
-      </ul>
-      <h2>Join and Share HAX</h2>
-      <ul>
-        <li><a href="https://github.com/haxtheweb/issues/issues" target="_blank" rel="nofollow">🔮 Ideas to HAX Harder, Better, Faster, Stronger</a></li>
-        <li><a href="https://bit.ly/hax-the-linkedin" target="_blank" rel="nofollow">👔 Share on LinkedIn</a></li>
-        <li><a href="https://bit.ly/hax-the-x" target="_blank" rel="nofollow">🧵 Tweet on X</a></li>
-        <li><a href="https://bit.ly/hax-discord" target="_blank" rel="nofollow">💬 Join Community</a></li>
-      </ul>
-      <h2>Learn the languages and tools</h2>
-      <ul>
-        <li><a href="https://w3schools.com" target="_blank" rel="nofollow">🌐 Learn HTML</a></li>
-        <li><a href="https://web.dev/learn/css/" target="_blank" rel="nofollow">🎨 Learn CSS</a></li>
-        <li><a href="http://Javascript.info" target="_blank" rel="nofollow">💻 Learn JavaScript (JS)</a></li>
-        <li><a href="https://gitimmersion.com" target="_blank" rel="nofollow">🦺 Learn Git / Github</a></li>
-        <li><a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/" target="_blank" rel="nofollow">📦 Learn NPM</a></li>
-        <li><a href="http://learnux.io" target="_blank" rel="nofollow">📐 Learn UX / UI development</a></li>
-      </ul>
-      <h2>Find purpose and inspiration</h2>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=eC7xzavzEKY" target="_blank" rel="nofollow">🐟 This is Water - David Foster Wallace</a></li>
-        <li><a href="https://www.youtube.com/watch?v=kYfNvmF0Bqw" target="_blank" rel="nofollow">🏗️ Secrets of Life - Steve Jobs</a></li>
-        <li><strong>💡 <em>Never. Stop. Innovating.</em></strong></li>
-      </ul>
+  <div id="portfolio">
+
+    <div id="sidebar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
-  </details>
+
+    <div id="content">
+      <div id="home" class="screen">
+        <div class="screen-content">
+          <h1>Welcome to my Portfolio</h1>
+          <p>This is the home screen.</p>
+        </div>
+      </div>
+      <div id="about" class="screen">
+        <div class="screen-content">
+          <h2>About Me</h2>
+          <p>
+            I am Baaba-Aly Ba, a highly motivated and skilled professional with a strong foundation in cybersecurity and software development. I am passionate about leveraging my technical abilities to create innovative and secure solutions.
+          </p>
+
+          <h3>Education</h3>
+          <p>
+            <strong>The Pennsylvania State University - State College</strong><br>
+            Bachelor's degree, Cybersecurity Analytics and Operations (2021-2025)<br>
+          </p>
+
+          <h3>Experience</h3>
+          <p>
+            <strong>Penn State - Undergraduate Cybersecurity Student</strong><br>
+            <ul>
+              <li>Applied principles of cloud security to safeguard data and applications in cloud environments.</li>
+              <li>Engaged in risk identification and management, implementing mitigation strategies. </li>
+              <li>Demonstrated proficiency in operating systems: Windows, MacOS, and Linux. </li>
+              <li>Developed applications in Java and created SQL projects, shared on GitHub. </li>
+              <li>Utilized teamwork and adaptability in group projects, focusing on problem-solving and creative solutions. </li>
+            </ul>
+          </p>
+          <p>
+            <strong>Depop - Social Media Marketer</strong><br>
+            (June 2024 - Present)
+            <ul>
+              <li>Created engaging video content to boost user engagement and brand visibility. </li>
+              <li>Developed social media marketing strategies, increasing followers and interactions. </li>
+               <li>Improved skills in communication, video/photo shooting, editing, and content creation. </li>
+              <li>Showed professionalism and adaptability in a dynamic online marketplace. </li>
+            </ul>
+          </p>
+
+        </div>
+      </div>
+      <div id="skills" class="screen">
+        <div class="screen-content">
+          <h2>Skills</h2>
+          <p>
+            <strong>Languages:</strong> English, French, Wolof, Spanish, C, C+, Java, Python, Javascript, Bash, SQL
+            <br>
+            <strong>Frameworks:</strong> Kali, Nikto, Snort, Cloud Security, Windows, MacOS, Linux
+            <strong>Other:</strong> Risk Identification and Management, Wireshark, Metasploit, Snort, Teamwork Adaptability, Writing, Communicative, Problem-solving, Creativity.</p>
+        </div>
+      </div>
+      <div id="projects" class="screen">
+        <div class="screen-content">
+          <h2>Projects</h2>
+          <p>This is the projects screen.</p>
+        </div>
+      </div>
+      <div id="contact" class="screen">
+        <div class="screen-content">
+          <h2>Contact</h2>
+          <p><strong>Email:</strong> baabaalyb@hotmail.com 
+            <br>
+            <strong>LinkedIn:</strong> https://www.linkedin.com/in/baaba-aly-ba-506a44230/
+          </p>
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="back-to-top" onclick="window.scrollTo(0, 0);">Back to Top</div>
+
+  <script>
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+
+          
+            history.pushState(null, null, this.getAttribute('href'));
+
+            
+            document.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    
+    window.onload = () => {
+      if (window.location.hash) {
+        document.querySelector(window.location.hash).scrollIntoView({
+          behavior: 'smooth'
+        });
+
+     
+        document.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+        document.querySelector(`a[href="${window.location.hash}"]`).classList.add('active');
+      }
+    };
+  </script>
+
 </body>
 </html>
