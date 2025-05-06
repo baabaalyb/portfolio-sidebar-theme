@@ -12,99 +12,180 @@
       margin: 0;
       padding: 0;
       height: 100%;
+      --primary-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --secondary-font: 'Roboto Mono', monospace;
+      --accent-color: #007bff; /* Blue accent */
+      --text-color-primary: #333;
+      --text-color-secondary: #555;
     }
 
     body {
-      font-family: sans-serif;
+      font-family: var(--primary-font);
+      color: var(--text-color-primary);
+      line-height: 1.6;
     }
 
     #portfolio {
       display: grid;
-      grid-template-columns: 200px 1fr; 
+      grid-template-columns: 250px 1fr;
       height: 100%;
     }
 
     #sidebar {
-      background-color: #f0f0f0;
-      padding: 20px;
-      position: fixed; 
+      background-color: #2c3e50;
+      padding: 30px;
+      position: fixed;
       height: 100%;
       box-sizing: border-box;
+      color: #fff;
+      text-align: left;
+    }
+
+    #sidebar h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      font-weight: bold;
     }
 
     #sidebar a {
       display: block;
-      padding: 10px;
+      padding: 12px 15px;
       text-decoration: none;
-      color: #333;
+      color: #eee;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      margin-bottom: 8px;
+    }
+
+    #sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     #sidebar a.active {
-      background-color: #ddd;
+      background-color: var(--accent-color);
+      color: #fff;
+      font-weight: bold;
     }
 
     #content {
-      overflow-y: auto; 
+      overflow-y: auto;
       height: 100%;
-      grid-column: 2; 
-      margin-left: 200px; 
+      grid-column: 2;
+      margin-left: 250px;
+      background-color: #f4f4f4;
     }
 
     .screen {
-      height: 100vh; 
+      /* height: 100vh;  REMOVED this */
+      min-height: 100vh; /* Changed to min-height */
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 40px;
+      box-sizing: border-box;
     }
 
-    #home { background-color: #e0f7fa; }
-    #about { background-color: #c5cae9; }
-    #skills { background-color: #dcedc8; }
-    #projects { background-color: #ffecb3; }
-    #contact { background-color: #fbe9e7; }
+    #home { background-color: #e8f5e9; }
+    #about { background-color: #fbe9e7; }
+    #skills { background-color: #ede7f6; }
+    #projects { background-color: #fffde7; }
+    #contact { background-color: #e0f2f7; }
 
     .screen-content {
       width: 80%;
+      max-width: 900px;
       margin: auto;
+      text-align: left;
     }
 
-   
+    .screen-content h1 {
+      font-size: 6vw;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      color: var(--accent-color);
+      font-family: var(--primary-font);
+      font-weight: bold;
+    }
+
     .screen-content h2 {
-      font-size: 2em;
-      margin-bottom: 0.5em;
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: var(--text-color-primary);
+      font-weight: bold;
     }
 
     .screen-content h3 {
-      font-size: 1.5em;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
+      font-size: 1.8em;
+      margin-top: 25px; /* Adjusted back to original value */
+      margin-bottom: 10px;
+      color: var(--text-color-primary);
+      font-weight: bold;
     }
 
     .screen-content p {
-      font-size: 1.1em;
-      line-height: 1.4;
-      margin-bottom: 1em;
+      font-size: 1.15em;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: var(--text-color-secondary);
     }
 
     .screen-content ul {
-      list-style-type: square;
-      padding-left: 20px;
+      list-style-type: disc;
+      padding-left: 25px;
+      color: var(--text-color-secondary);
+    }
+
+    .screen-content li {
+      margin-bottom: 10px;
+    }
+
+    .screen-content li a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .screen-content li a:hover {
+      text-decoration: underline;
+      color: #0056b3;
     }
 
     .back-to-top {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px;
-      background-color: #333;
+      bottom: 30px;
+      right: 30px;
+      padding: 15px;
+      background-color: var(--accent-color);
       color: white;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+      border: none;
+      outline: none;
     }
 
+    .back-to-top:hover {
+      background-color: #0056b3;
+    }
+
+    #sidebar h2 {
+      font-family: var(--primary-font);
+    }
+
+    #sidebar a {
+      font-family: var(--primary-font);
+    }
+
+    .screen-content p,
+    .screen-content ul,
+    .screen-content li {
+      font-family: var(--primary-font);
+    }
   </style>
 
-  <title>Baaba-Aly Ba - Portfolio</title>
+  <title>Baaba-Aly Ba - Professional Portfolio</title>
 </head>
 
 <body>
@@ -112,6 +193,7 @@
   <div id="portfolio">
 
     <div id="sidebar">
+      <h2>Baaba-Aly Ba</h2>
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -122,21 +204,21 @@
     <div id="content">
       <div id="home" class="screen">
         <div class="screen-content">
-          <h1>Welcome to my Portfolio</h1>
-          <p>This is the home screen.</p>
+          <h1>Welcome!<br>Baaba-Aly Ba</h1>
         </div>
       </div>
       <div id="about" class="screen">
         <div class="screen-content">
           <h2>About Me</h2>
           <p>
-            I am Baaba-Aly Ba, a highly motivated and skilled professional with a strong foundation in cybersecurity and software development. I am passionate about leveraging my technical abilities to create innovative and secure solutions.
+            I am Baaba-Aly Ba, a highly motivated and skilled professional with a strong foundation in cybersecurity and software development. I am passionate about leveraging my technical abilities to create innovative and secure solutions. My academic background at The Pennsylvania State University, coupled with practical experience, has equipped me with a comprehensive understanding of both theoretical principles and real-world applications.
           </p>
 
           <h3>Education</h3>
           <p>
             <strong>The Pennsylvania State University - State College</strong><br>
             Bachelor's degree, Cybersecurity Analytics and Operations (2021-2025)<br>
+            Term GPA - 3.84
           </p>
 
           <h3>Experience</h3>
@@ -144,20 +226,20 @@
             <strong>Penn State - Undergraduate Cybersecurity Student</strong><br>
             <ul>
               <li>Applied principles of cloud security to safeguard data and applications in cloud environments.</li>
-              <li>Engaged in risk identification and management, implementing mitigation strategies. </li>
-              <li>Demonstrated proficiency in operating systems: Windows, MacOS, and Linux. </li>
-              <li>Developed applications in Java and created SQL projects, shared on GitHub. </li>
-              <li>Utilized teamwork and adaptability in group projects, focusing on problem-solving and creative solutions. </li>
+              <li>Engaged in risk identification and management, implementing strategies to mitigate potential threats.</li>
+              <li>Demonstrated proficiency in operating systems: Windows, MacOS, and Linux.</li>
+              <li>Developed applications in Java and created multiple projects featuring SQL, sharing them on GitHub to showcase my coding skills.</li>
+              <li>Utilized teamwork and adaptability in group projects, with a focus on problem-solving and creative solutions.</li>
             </ul>
           </p>
           <p>
             <strong>Depop - Social Media Marketer</strong><br>
             (June 2024 - Present)
             <ul>
-              <li>Created engaging video content to boost user engagement and brand visibility. </li>
-              <li>Developed social media marketing strategies, increasing followers and interactions. </li>
-               <li>Improved skills in communication, video/photo shooting, editing, and content creation. </li>
-              <li>Showed professionalism and adaptability in a dynamic online marketplace. </li>
+              <li>Created engaging video content on fashion trends and app features, boosting user engagement and brand visibility.</li>
+              <li>Developed social media marketing strategies, significantly increasing followers and daily interactions.</li>
+              <li>Improved skills in communication, video/photo shooting, editing, and content creation, enhancing understanding of algorithmic trends.</li>
+              <li>Showed professionalism and adaptability while collaborating in a dynamic online marketplace, optimizing content reach based on insights.</li>
             </ul>
           </p>
 
@@ -167,66 +249,92 @@
         <div class="screen-content">
           <h2>Skills</h2>
           <p>
-            <strong>Languages:</strong> English, French, Wolof, Spanish, C, C+, Java, Python, Javascript, Bash, SQL
-            <br>
-            <strong>Frameworks:</strong> Kali, Nikto, Snort, Cloud Security, Windows, MacOS, Linux
-            <strong>Other:</strong> Risk Identification and Management, Wireshark, Metasploit, Snort, Teamwork Adaptability, Writing, Communicative, Problem-solving, Creativity.</p>
+            Here's a summary of my technical and soft skills:
+          </p>
+          <ul>
+            <li><strong>Languages:</strong> English, French, Wolof, Spanish, C, C+, Java, Python, Javascript, Bash, SQL</li>
+            <li><strong>Frameworks & Tools:</strong> Kali, Nikto, Snort, Cloud Security, Wireshark, Metasploit, Windows, MacOS, Linux</li>
+            <li><strong>Other:</strong> Risk Identification and Management, Teamwork, Adaptability, Writing, Communicative, Problem-solving, Creativity</li>
+          </ul>
         </div>
       </div>
       <div id="projects" class="screen">
         <div class="screen-content">
           <h2>Projects</h2>
-          <p>This is the projects screen.</p>
+          <p>Here are some of the projects I've worked on:</p>
+          <ul>
+            <li>
+              <strong>Portfolio Sidebar Theme</strong> - A customizable sidebar theme for portfolios.
+              <a href="https://github.com/baabaalyb/portfolio-sidebar-theme" target="_blank">View on GitHub</a>
+            </li>
+            <li>
+              <strong>Card List</strong> - A component to display a list of cards with various content.
+              <a href="https://github.com/baabaalyb/ddd-card-list" target="_blank">View on GitHub</a>
+            </li>
+            <li>
+              <strong>Link Preview Card</strong> - A component to generate previews for links.
+              <a href="https://github.com/baabaalyb/link-preview-card" target="_blank">View on GitHub</a>
+            </li>
+            <li>
+              <strong>Counter App</strong> - A simple web application demonstrating a counter.
+              <a href="https://github.com/baabaalyb/counter-app" target="_blank">View on GitHub</a>
+            </li>
+          </ul>
         </div>
       </div>
       <div id="contact" class="screen">
         <div class="screen-content">
           <h2>Contact</h2>
-          <p><strong>Email:</strong> baabaalyb@hotmail.com 
-            <br>
-            <strong>LinkedIn:</strong> https://www.linkedin.com/in/baaba-aly-ba-506a44230/
-          </p>
-          
+          <p>Feel free to reach out!</p>
+          <p><strong>Email:</strong> <a href="mailto:baabaalyb@hotmail.com">baabaalyb@hotmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/baaba-aly-ba-506a44230/" target="_blank">linkedin.com/in/baaba-aly-ba-506a44230/</a></p>
         </div>
       </div>
     </div>
 
   </div>
 
-  <div class="back-to-top" onclick="window.scrollTo(0, 0);">Back to Top</div>
+  <button class="back-to-top" onclick="window.scrollTo(0, 0);">Back to Top</button>
 
   <script>
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-
-          
-            history.pushState(null, null, this.getAttribute('href'));
-
-            
-            document.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
-
-    
-    window.onload = () => {
-      if (window.location.hash) {
-        document.querySelector(window.location.hash).scrollIntoView({
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
 
-     
-        document.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-        document.querySelector(`a[href="${window.location.hash}"]`).classList.add('active');
+        history.pushState(null, null, this.getAttribute('href'));
+
+        document.querySelectorAll('#sidebar a').forEach(a => a.classList.remove('active'));
+        const targetId = this.getAttribute('href').substring(1);
+        const activeLink = document.querySelector(`#sidebar a[href="#${targetId}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      });
+    });
+
+    window.onload = () => {
+      if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+          const activeLink = document.querySelector(`#sidebar a[href="${window.location.hash}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        } else {
+          document.querySelector('#sidebar a[href="#home"]').classList.add('active');
+        }
+      } else {
+        document.querySelector('#sidebar a[href="#home"]').classList.add('active');
       }
     };
   </script>
 
 </body>
+
 </html>
